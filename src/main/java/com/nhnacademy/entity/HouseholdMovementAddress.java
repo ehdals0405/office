@@ -1,44 +1,47 @@
-package com.nhnacademy.domain;
+package com.nhnacademy.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "household_movement_address")
 @Getter
 @Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class HouseholdMovementAddress {
 
     @EmbeddedId
     private Pk pk;
 
     @MapsId("householdSerialNumber")
-    private Long householdSerialNumber;
-
-    @MapsId("houseMovementReportDate")
-    private LocalDateTime houseMovementReportDate;
+    @ManyToOne
+    @JoinColumn(name = "household_serial_number")
+    private Household household;
 
     @Column(name = "house_movement_address")
     private String houseMovementAddress;
+
     @Column(name = "last_address_yn")
-    private boolean lastAddressYn;
+    private boolean isLastAddress;
+
 
     @Embeddable
     @Getter
+    @Setter
     @AllArgsConstructor
     @NoArgsConstructor
+    @EqualsAndHashCode
     public static class Pk implements Serializable {
 
         @Column(name = "household_serial_number")
         private Long householdSerialNumber;
 
         @Column(name = "house_movement_report_date")
-        private LocalDateTime houseMovementReportDate;
+        private LocalDate houseMovementReportDate;
     }
 }

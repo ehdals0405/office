@@ -1,0 +1,21 @@
+POST /residents HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "name": "김철수",
+  "residentRegistrationNumber": "12345678-12345678",
+  "genderCode": "남"
+}
+
+###
+
+PUT /residents/8 HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "name": "김영수",
+  "residentRegistrationNumber": "12345678-987654321`",
+  "genderCode": "남"
+}

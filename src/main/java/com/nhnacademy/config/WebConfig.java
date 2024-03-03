@@ -15,6 +15,7 @@ import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.*;
+
 import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
@@ -38,7 +39,7 @@ public class WebConfig implements WebMvcConfigurer, ApplicationContextAware {
     }
 
 
-   @Override
+    @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
     }
@@ -95,12 +96,12 @@ public class WebConfig implements WebMvcConfigurer, ApplicationContextAware {
         registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
     }
 
-    @Override
-    public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("index");
-        registry.addViewController("/index.html").setViewName("index");
-//        registry.addRedirectViewController("/favicon.ico","/resources/favicon.ico");
-    }
+//    @Override
+//    public void addViewControllers(ViewControllerRegistry registry) {
+//        registry.addViewController("/").setViewName("index");
+//        registry.addViewController("/index.html").setViewName("index");
+////        registry.addRedirectViewController("/favicon.ico","/resources/favicon.ico");
+//    }
 
     @Override
     public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
@@ -112,4 +113,5 @@ public class WebConfig implements WebMvcConfigurer, ApplicationContextAware {
                 .mediaType("json", MediaType.APPLICATION_JSON)
                 .mediaType("xml", MediaType.APPLICATION_XML);
     }
+
 }

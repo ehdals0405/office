@@ -1,0 +1,34 @@
+POST /residents/1/death HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "residentSerialNumber": 8,
+  "typeCode": "사망",
+  "deathReportDate": "2025-11-11T00:00:00",
+  "deathPlace": "공공시설",
+  "address": "대구",
+  "deathReportQualificationsCode": "동거자",
+  "emailAddress": "123@123",
+  "phoneNumber": "010-2020-1111"
+}
+
+###
+
+PUT /residents/1/death/8 HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "deathReportDate": "2023-11-11T00:00:00",
+  "deathPlace": "주택",
+  "address": "대구12",
+  "deathReportQualificationsCode": "동거친족",
+  "emailAddress": "123@1235",
+  "phoneNumber": "010-2020-111111"
+}
+###
+
+DELETE /residents/1/death/8 HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json

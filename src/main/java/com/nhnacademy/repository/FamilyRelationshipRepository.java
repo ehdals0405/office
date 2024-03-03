@@ -1,13 +1,16 @@
 package com.nhnacademy.repository;
 
-import com.nhnacademy.domain.FamilyRelationship;
+import com.nhnacademy.entity.FamilyRelationship;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import static com.nhnacademy.entity.FamilyRelationship.*;
 
 import java.util.Optional;
 
-public interface FamilyRelationshipRepository extends JpaRepository<FamilyRelationship, FamilyRelationship.Pk> {
+public interface FamilyRelationshipRepository extends JpaRepository<FamilyRelationship, Pk> {
 
-    Optional<FamilyRelationship> findByPk(FamilyRelationship.Pk pk);
 
-    void deleteByPk(FamilyRelationship.Pk pk);
 }

@@ -1,13 +1,9 @@
-package com.nhnacademy.domain;
+package com.nhnacademy.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -20,10 +16,13 @@ public class HouseholdCompositionResident {
     private Pk pk;
 
     @MapsId("householdSerialNumber")
-    private Long householdSerialNumber;
-
+    @ManyToOne
+    @JoinColumn(name = "household_serial_number")
+    private Household household;
+    @ManyToOne
+    @JoinColumn(name = "resident_serial_number")
     @MapsId("residentSerialNumber")
-    private Long residentSerialNumber;
+    private Resident resident;
 
     @Column(name = "report_date")
     private LocalDateTime reportDate;
@@ -37,6 +36,7 @@ public class HouseholdCompositionResident {
     @Getter
     @AllArgsConstructor
     @NoArgsConstructor
+    @EqualsAndHashCode
     public static class Pk implements Serializable {
 
         @Column(name = "household_serial_number")

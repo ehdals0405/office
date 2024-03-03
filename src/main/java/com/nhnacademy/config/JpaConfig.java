@@ -1,6 +1,5 @@
 package com.nhnacademy.config;
 
-
 import com.nhnacademy.repository.RepositoryBase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -32,14 +31,14 @@ public class JpaConfig {
 
     private JpaVendorAdapter jpaVendorAdapters() {
         HibernateJpaVendorAdapter hibernateJpaVendorAdapter = new HibernateJpaVendorAdapter();
-        hibernateJpaVendorAdapter.setDatabase(Database.H2);
+        hibernateJpaVendorAdapter.setDatabase(Database.MYSQL);
 
         return hibernateJpaVendorAdapter;
     }
 
     private Properties jpaProperties() {
         Properties jpaProperties = new Properties();
-        jpaProperties.setProperty("hibernate.show_sql", "true");
+        jpaProperties.setProperty("hibernate.show_sql", "false");
         jpaProperties.setProperty("hibernate.format_sql", "true");
         jpaProperties.setProperty("hibernate.use_sql_comments", "true");
         jpaProperties.setProperty("hibernate.globally_quoted_identifiers", "true");

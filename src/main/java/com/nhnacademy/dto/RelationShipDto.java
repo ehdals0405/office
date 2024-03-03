@@ -1,12 +1,18 @@
 package com.nhnacademy.dto;
 
-import lombok.Getter;
-import lombok.Setter;
+
+import static com.nhnacademy.entity.FamilyRelationship.*;
+
+import lombok.*;
 
 @Getter
 @Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class RelationShipDto {
 
+    private Long serialNumber;
     private Long familySerialNumber;
-    private String relationShip;
+    private RelationshipCode relationShip;
 }

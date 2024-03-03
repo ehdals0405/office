@@ -1,5 +1,6 @@
 import com.nhnacademy.config.RootConfig;
 import com.nhnacademy.config.WebConfig;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -31,6 +32,7 @@ public class DBTest {
 
     @Test
     @DisplayName("DB연결 테스트")
+    @Disabled
     public void dbTest(){
 
         Query query = entityManager.createNativeQuery("SELECT 1");

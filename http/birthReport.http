@@ -1,0 +1,35 @@
+
+POST /residents/1/birth HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "residentSerialNumber": 8,
+  "typeCode": "출생",
+  "birthReportDate": "2023-11-11T00:00:00",
+  "birthPlace": "병원",
+  "address": "어디야",
+  "birthReportQualificationsCode": "동거친족",
+  "emailAddress": "123@123",
+  "phoneNumber": "010-2222-3333"
+}
+
+###
+
+PUT /residents/1/birth/8 HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "birthReportDate": "2025-11-11T00:00:00",
+  "birthPlace": "자택",
+  "address": "어디야12",
+  "birthReportQualificationsCode": "비동거친족",
+  "emailAddress": "123@1234",
+  "phoneNumber": "010-2222-4444"
+}
+###
+
+DELETE /residents/1/birth/8 HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
